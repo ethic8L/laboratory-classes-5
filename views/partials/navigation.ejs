@@ -1,14 +1,27 @@
 <nav class="navigation">
   <ul class="navigation__list">
-    <% if (menuLinks.length > 0) { %> <% menuLinks.forEach(link => { %>
-    <li class="navigation__item">
-      <a
-        class="navigation__link <%= activeLinkPath === link.path ? 'navigation__link--active' : '' %>"
-        href="<%= link.path %>"
-      >
-        <%= link.label %>
-      </a>
+    <% if (menuLinks.length > 0) { %>
+      <% menuLinks.forEach(link => { %>
+        <li class="navigation__item">
+          <a
+            class="navigation__link <%= activeLinkPath === link.path ? 'navigation__link--active' : '' %>"
+            href="<%= link.path %>"
+          >
+            <%= link.label %>
+          </a>
+        </li>
+      <% }); %>
+    <% } %>
+
+
+    <li class="navigation__item navigation__cart">
+      Cart
+      <img
+        class="navigation__cart"
+        alt="Cart"
+        src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shopping-cart.svg"
+      />
+      <span class="navigation__badge"><%= cartCount %></span>
     </li>
-    <% }); %> <% } %>
   </ul>
 </nav>
